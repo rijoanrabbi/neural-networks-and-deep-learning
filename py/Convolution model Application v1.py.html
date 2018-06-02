@@ -473,7 +473,7 @@ def model(X_train, Y_train, X_test, Y_test, learning_rate = 0.009,
                 # IMPORTANT: The line that runs the graph on a minibatch.
                 # Run the session to execute the optimizer and the cost, the feedict should contain a minibatch for (X,Y).
                 ### START CODE HERE ### (1 line)
-                _ , temp_cost = sess.run(optimizer,feed_dict={X:minibatch_X,Y:minibatch_Y})
+                _ , temp_cost = sess.run([optimizer, cost], feed_dict={X: minibatch_X, Y: minibatch_Y}) # wrong code:sess.run(optimizer,feed_dict={X:minibatch_X,Y:minibatch_Y})
                 ### END CODE HERE ###
                 ### HERE HAS BUGS!!!
                 minibatch_cost += temp_cost / num_minibatches
